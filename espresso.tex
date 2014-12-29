@@ -1,4 +1,5 @@
 \documentclass{article}
+\usepackage{diagbox}
 \usepackage{pgfplots}
 \usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
 \pgfplotsset{compat=1.10}
@@ -7,7 +8,7 @@
 
 \small
 \begin{tabular}{r|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|}
-              & Espresso & Steamed Milk & Milk Foam & Brewed Coffee & Water & Cream & Steamed Half-and-half & Choc. Syrup\\ \hline
+  \diagbox[height=6em,width=5em]{\emph{Drink}}{\emph{Ingreds.}} & Espresso & Steamed Milk & Milk Foam & Brewed Coffee & Water & Cream & Steamed Half-and-half & Choc. Syrup\\ \hline
   Espresso    &    .4    &         -    &       -   &           -   &    -  &    -  &                -      &       -     \\
   Caffe Latte &    .4    &        .4    &      .2   &           -   &    -  &    -  &                -      &       -     \\
   Cappuccino  &    .4    &        .2    &      .4   &           -   &    -  &    -  &                -      &       -     \\
