@@ -1,10 +1,14 @@
 \documentclass{article}
 \usepackage{diagbox}
 \usepackage{pgfplots}
+\usepackage{fancyhdr}
 \usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
 \pgfplotsset{compat=1.10}
 
 \begin{document}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot[R]{\tiny This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.}
+\thispagestyle{fancy}
 
 \small
 \begin{tabular}{r|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|}
