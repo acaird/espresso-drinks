@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
+\pgfplotsset{compat=1.10}
+
+\begin{document}
+
+\def\scale{1.5}  % how big is the cup?
+\def\espresso{.9}    % how full is the cup?
+\def\cupwall{5}  % how thick is the cup wall?
+\def\cuptype{6}  % how flat it the cup's bottom?
+
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}
+
+      % keep the drink in the cup
+      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      plot ({\x},{pow(\x,\cuptype)});
+
+      % put espresso in the cup
+      \draw[scale=\scale, brown, fill=brown,decorate,
+        decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
+      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+
+      % draw the cup around our magically constrained drink
+      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+        name path=cup,black,line width=\cupwall]
+      plot ({\x},{pow(\x,\cuptype)});
+
+    \end{tikzpicture}
+  \end{center}
+  \caption{Type \cuptype\ Cup}
+\end{figure}
+
+
+\end{document}
