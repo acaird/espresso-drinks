@@ -1,0 +1,19 @@
+#+TITLE: Espresso Drinks
+#+AUTHOR: Andrew Caird
+#+EMAIL: acaird@gmail.com
+#+OPTIONS: ':t ^:{} toc:nil author:t
+
+This is the combination of two enjoyable things: LaTeX and espresso
+drinks.
+
+The file ~espresso.tex~ in this repository will produce an A4-sized
+"poster" with pictures of 12 different espresso drinks.
+
+The generation of the poster requires PDFLaTeX and TikZ and a few
+other common packages.  An up-to-date TeXLive installation should have
+everything needed.
+
+This work is licensed under the [[http://creativecommons.org/licenses/by-sa/4.0/][Creative Commons
+Attribution-ShareAlike 4.0 International License]].
+
+[[http://creativecommons.org/licenses/by-sa/4.0/][https://i.creativecommons.org/l/by-sa/4.0/88x31.png]]
