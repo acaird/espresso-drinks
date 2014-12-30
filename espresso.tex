@@ -6,6 +6,7 @@
 \usepackage{fancyhdr}
 \usepackage[a4paper,scale=.8,centering]{geometry}
 \usepackage{caption}
+\usepackage{rotating}
 \usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
 
 \DeclareCaptionFormat{myformat}{#1#2#3\hrulefill}
@@ -21,24 +22,6 @@
 \fancyhead[C]{\Large Espresso Drinks}
 \thispagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
-%% \small
-%% \begin{tabular}{r|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|p{3.6em}|}
-%%   \diagbox[height=6em,width=5em]{\emph{Drink}}{\emph{Ingreds.}} & Espresso & Steamed Milk & Milk Foam & Brewed Coffee & Water & Cream & Steamed Half-and-half & Choc. Syrup \\ \hline
-%%                                                     Espresso    &    .4    &         -    &       -   &           -   &    -  &    -  &                -      &       -     \\
-%%                                                     Caffe Latte &    .4    &        .4    &      .2   &           -   &    -  &    -  &                -      &       -     \\
-%%                                                     Cappuccino  &    .4    &        .2    &      .4   &           -   &    -  &    -  &                -      &       -     \\
-%%                                                     Red Eye     &    .4    &         -    &       -   &          .6   &    -  &    -  &                -      &       -     \\
-%%                                                     Americano   &    .4    &         -    &       -   &           -   &   .6  &    -  &                -      &       -     \\
-%%                                                     Black Eye   &    .6    &         -    &       -   &           -   &   .4  &    -  &                -      &       -     \\
-%%                                                     Viennois    &    .4    &        .3    &       -   &           -   &    -  &   .3  &                -      &       -     \\
-%%                                                     Caffe Mocha &    .4    &        .3    &       -   &           -   &    -  &   .2  &                -      &       .1    \\
-%%                                                     Con Panna   &    .4    &         -    &       -   &           -   &    -  &   .4  &                -      &       -     \\
-%%                                                     Flat White  &    .4    &        .4    &       -   &           -   &    -  &    -  &                -      &       -     \\
-%%                                                     Cafe Brev\`e  &    .4    &         -    &      .2   &           -   &    -  &    -  &               .4      &       -     \\
-%%                                                     Macchiatto  &    .4    &         -    &      .4   &           -   &    -  &    -  &                -      &       -     \\
-%% \end{tabular}
-%% \normalsize
-% The most ingredients in any of the drinks is 4.
 
 \def\scale{1}  % how big is the cup?
 \def\espresso{.4}    % how full is the cup?
@@ -502,5 +485,27 @@
   \end{center}
   \caption{Macciatto}
 \end{figure}
+
+\newpage
+
+\begin{sidewaystable}
+\begin{tabular}{r|l|l|l|l|l|l|l|l|}
+  \diagbox[height=6em,width=5em]{\emph{Drink}}{\emph{Ingreds.}}   & Espresso & Steamed Milk & Milk Foam & Brewed Coffee & Water & Cream & Steamed Half-and-half & Choc. Syrup \\ \hline
+                                                    Espresso      &    .4    &         -    &       -   &           -   &    -  &    -  &                -      &       -     \\
+                                                    Caff\`e Latte &    .4    &        .4    &      .2   &           -   &    -  &    -  &                -      &       -     \\
+                                                    Cappuccino    &    .4    &        .2    &      .4   &           -   &    -  &    -  &                -      &       -     \\
+                                                    Red Eye       &    .4    &         -    &       -   &          .6   &    -  &    -  &                -      &       -     \\
+                                                    Americano     &    .4    &         -    &       -   &           -   &   .6  &    -  &                -      &       -     \\
+                                                    Black Eye     &    .6    &         -    &       -   &           -   &   .4  &    -  &                -      &       -     \\
+                                                    Viennois      &    .4    &        .3    &       -   &           -   &    -  &   .3  &                -      &       -     \\
+                                                    Cafe Mocha    &    .4    &        .3    &       -   &           -   &    -  &   .2  &                -      &       .1    \\
+                                                    Con Panna     &    .4    &         -    &       -   &           -   &    -  &   .4  &                -      &       -     \\
+                                                    Flat White    &    .4    &        .4    &       -   &           -   &    -  &    -  &                -      &       -     \\
+                                                    Caff\`e Breve &    .4    &         -    &      .2   &           -   &    -  &    -  &               .4      &       -     \\
+                                                    Macchiatto    &    .4    &         -    &      .4   &           -   &    -  &    -  &                -      &       -     \\
+\end{tabular}
+\end{sidewaystable}
+% The most ingredients in any of the drinks is 4.
+
 
 \end{document}
