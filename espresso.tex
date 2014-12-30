@@ -1,9 +1,10 @@
-\documentclass[twocolumn,a4paper]{article}
+\documentclass[twocolumn,a4paper,10pt]{article}
 
 \usepackage[rgb]{xcolor}
 \usepackage{diagbox}
 \usepackage{pgfplots}
 \usepackage{fancyhdr}
+\usepackage[a4paper,scale=.8,centering]{geometry}
 \usepackage{caption}
 \usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
 
@@ -13,6 +14,7 @@
 \pgfplotsset{compat=1.10}
 
 \begin{document}
+
 \fancyhf{} % clear all header and footer fields
 \fancyfoot[C]{\tiny This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.}
 \thispagestyle{fancy}
@@ -34,7 +36,6 @@
 %%                                                     Macchiatto  &    .4    &         -    &      .4   &           -   &    -  &    -  &                -      &       -     \\
 %% \end{tabular}
 %% \normalsize
-
 % The most ingredients in any of the drinks is 4.
 
 \def\scale{1}  % how big is the cup?
@@ -50,6 +51,8 @@
 \definecolor{creamColor}{RGB}{255,235,205}
 \definecolor{chocColor}{RGB}{92,51,23}
 \definecolor{halfandhalfColor}{RGB}{250,250,210}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%  Espresso
