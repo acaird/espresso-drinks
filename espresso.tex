@@ -52,6 +52,8 @@
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -89,6 +91,8 @@
             {\small\textcolor{gray}{Steamed Milk}};
       \node[anchor=east] at (\leftTextXpos, {1 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -136,6 +140,8 @@
             {\small\textcolor{gray}{Steamed Milk}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -180,6 +186,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\water) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Hot Water}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -219,6 +227,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -260,6 +270,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -304,6 +316,8 @@
             {\small\textcolor{gray}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -356,6 +370,8 @@
             {\small\textcolor{gray}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc+\milk+\cream) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -406,6 +422,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -446,6 +464,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -489,6 +509,8 @@
             {\small\textcolor{gray}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Half-and-half}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -533,6 +555,8 @@
             {\small\textcolor{gray}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
+      \path (-4,{pow(1.1,\cuptype)+.1}) -- (-4,0) -- (4,0) --
+      (4,{pow(1.1,\cuptype)+.1}) -- cycle;
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
