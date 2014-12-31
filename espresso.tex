@@ -47,6 +47,9 @@
   \begin{center}
     \begin{tikzpicture}
 
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
@@ -76,6 +79,13 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
+      \node at (2.2, {.95 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Milk Foam}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -117,6 +127,13 @@
   \begin{center}
     \begin{tikzpicture}
 
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.9 * (\espresso+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
+      \node at (2.2, {.8 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Milk Foam}};
+
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
@@ -156,6 +173,11 @@
   \begin{center}
     \begin{tikzpicture}
 
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\water) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Hot Water}};
+
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
@@ -189,6 +211,11 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Coffee}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -226,6 +253,11 @@
   \begin{center}
     \begin{tikzpicture}
 
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Coffee}};
+
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
@@ -262,6 +294,13 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
+      \node at (2.2, {.8 * (\espresso+\cream+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Cream}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -305,6 +344,15 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.7 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.9 * (\espresso+\choc) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Chocolate Syrup}};
+      \node at (2.2, {1 * (\espresso+\choc+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
+      \node at (2.2, {.9 * (\espresso+\choc+\milk+\cream) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Cream}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -351,6 +399,11 @@
   \begin{center}
     \begin{tikzpicture}
 
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\cream) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Cream}};
+
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
@@ -385,6 +438,11 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -421,6 +479,13 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Steamed Milk}};
+      \node at (2.2, {1 * (\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Half-and-half}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
@@ -460,6 +525,11 @@
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
+
+      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Espresso}};
+      \node at (2.2, {.8 * (\espresso+\foam) * pow(1.1,\cuptype)})
+            {\small\textcolor{gray}{Milk Foam}};
 
       % keep the drink in the cup
       \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
