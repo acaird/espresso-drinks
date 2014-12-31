@@ -17,12 +17,15 @@
 \begin{document}
 
 \fancyhf{} % clear all header and footer fields
-\fancyfoot[C]{\tiny This work is licensed under a Creative Commons
+\fancyfoot[C]{\tiny This work is licensed under a Creative Commons \\
   Attribution-ShareAlike 4.0 International License.}
+\fancyfoot[R]{\tiny @acaird (GMail/ \\ Github/Twitter)}
 \fancyhead[C]{\Large Espresso Drinks}
 \thispagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 
+\def\leftTextXpos{-1.3}
+\def\rightTextXpos{1.3}
 \def\scale{1}  % how big is the cup?
 \def\espresso{.4}    % how full is the cup?
 \def\cupwall{5}  % how thick is the cup wall?
@@ -47,7 +50,7 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
 
       % keep the drink in the cup
@@ -74,17 +77,17 @@
 %%  Latte
 %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\foam{.2}
-\def\milk{.4}
+\def\foam{.15}
+\def\milk{.35}
 \begin{figure}
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node at (2.2, {.95 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {1 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
 
       % keep the drink in the cup
@@ -92,7 +95,7 @@
       plot ({\x},{pow(\x,\cuptype)});
 
       % put foam in the cup
-      \draw[scale=\scale, color=black, fill=foamColor,decorate,
+      \draw[scale=\scale, color=foamColor, fill=foamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
       (-2,-2) rectangle (2,{(\espresso+\milk+\foam) * pow(1.1,\cuptype)});
 
@@ -127,11 +130,11 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.9 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.9 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node at (2.2, {.8 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
 
       % keep the drink in the cup
@@ -173,9 +176,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\water) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\water) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Hot Water}};
 
       % keep the drink in the cup
@@ -212,9 +215,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
 
       % keep the drink in the cup
@@ -253,9 +256,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
 
       % keep the drink in the cup
@@ -295,11 +298,11 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node at (2.2, {.8 * (\espresso+\cream+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
 
       % keep the drink in the cup
@@ -345,13 +348,13 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.7 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.7 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.9 * (\espresso+\choc) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Chocolate Syrup}};
-      \node at (2.2, {1 * (\espresso+\choc+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\choc+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node at (2.2, {.9 * (\espresso+\choc+\milk+\cream) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc+\milk+\cream) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
 
       % keep the drink in the cup
@@ -399,9 +402,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\cream) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Cream}};
 
       % keep the drink in the cup
@@ -439,9 +442,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
 
       % keep the drink in the cup
@@ -480,11 +483,11 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node at (2.2, {1 * (\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Half-and-half}};
 
       % keep the drink in the cup
@@ -526,9 +529,9 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node at (2.2, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node at (2.2, {.8 * (\espresso+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\foam) * pow(1.1,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
 
       % keep the drink in the cup
