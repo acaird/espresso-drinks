@@ -6,6 +6,8 @@
 \usepackage{fancyhdr}
 \usepackage[a4paper,scale=.8,centering]{geometry}
 \usepackage{caption}
+\usepackage{calligra}
+\usepackage[T1]{fontenc}
 \usepackage{rotating}
 \usetikzlibrary{decorations.pathmorphing,intersections,fillbetween}
 
@@ -16,15 +18,6 @@
 
 \begin{document}
 
-\fancyhf{} % clear all header and footer fields
-\setlength{\headheight}{18pt}
-\fancyfoot[C]{\tiny This work is licensed under a Creative Commons \\
-  Attribution-ShareAlike 4.0 International License.}
-\fancyfoot[R]{\tiny @acaird (GMail/ \\ Github/Twitter)}
-\fancyhead[C]{\Large Espresso Drinks}
-\thispagestyle{fancy}
-\renewcommand{\headrulewidth}{0pt}
-
 \def\leftTextXpos{-1.3}
 \def\rightTextXpos{1.3}
 \def\scale{1}  % how big is the cup?
@@ -32,8 +25,8 @@
 \def\cupwall{5}  % how thick is the cup wall?
 \def\cuptype{6}  % how flat it the cup's bottom?
 \def\cupsize{1.1}% size of the cup
-\def\bboxx{4}
-\def\bboxydelta{.1}
+\def\bboxx{4.1}
+\def\bboxydelta{.31}
 % From http://web.njit.edu/~kevin/rgb.txt.html
 \definecolor{espressoColor}{RGB}{92,64,51}
 \definecolor{coffeeColor}{RGB}{92,51,23}
@@ -43,8 +36,21 @@
 \definecolor{creamColor}{RGB}{255,235,205}
 \definecolor{chocColor}{RGB}{92,51,23}
 \definecolor{halfandhalfColor}{RGB}{250,250,210}
+\definecolor{ingredTextColor}{RGB}{64,64,64}
+\definecolor{footerTextColor}{RGB}{164,164,164}
 
+\fancyhf{} % clear all header and footer fields
+\setlength{\headheight}{18pt}
+\fancyfoot[C]{\tiny\textcolor{footerTextColor}
+  {This work is licensed under a Creative Commons \\
+  Attribution-ShareAlike 4.0 International License.}}
+\fancyfoot[R]{\tiny\textcolor{footerTextColor}{@acaird (GMail/ \\ Github/Twitter)}}
+\fancyhead[C]{\calligra \Huge Espresso Drinks}
+\thispagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
 
+{
+  \renewcommand*\rmdefault{calligra}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
 %%  Espresso
@@ -55,7 +61,7 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -92,11 +98,11 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \node[anchor=east] at (\leftTextXpos, {1 * (\espresso+\milk+\foam) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Milk Foam}};
+            {\small\textcolor{ingredTextColor}{Milk Foam}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -143,11 +149,11 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.9 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk+\foam) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Milk Foam}};
+            {\small\textcolor{ingredTextColor}{Milk Foam}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -193,9 +199,9 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\water) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Hot Water}};
+            {\small\textcolor{ingredTextColor}{Hot Water}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -236,9 +242,9 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Coffee}};
+            {\small\textcolor{ingredTextColor}{Coffee}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -281,9 +287,9 @@
     \begin{tikzpicture}
 
       \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Coffee}};
+            {\small\textcolor{ingredTextColor}{Coffee}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -327,11 +333,11 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Cream}};
+            {\small\textcolor{ingredTextColor}{Cream}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -381,13 +387,13 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.7 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Chocolate Syrup}};
+            {\small\textcolor{ingredTextColor}{Chocolate Syrup}};
       \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\choc+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc+\milk+\cream) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Cream}};
+            {\small\textcolor{ingredTextColor}{Cream}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -439,9 +445,9 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Cream}};
+            {\small\textcolor{ingredTextColor}{Cream}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -483,9 +489,9 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -528,11 +534,11 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Steamed Milk}};
+            {\small\textcolor{ingredTextColor}{Steamed Milk}};
       \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\milk+\halfandhalf) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Half-and-half}};
+            {\small\textcolor{ingredTextColor}{Half-and-half}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -578,9 +584,9 @@
     \begin{tikzpicture}
 
       \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Espresso}};
+            {\small\textcolor{ingredTextColor}{Espresso}};
       \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\foam) * pow(\cupsize,\cuptype)})
-            {\small\textcolor{gray}{Milk Foam}};
+            {\small\textcolor{ingredTextColor}{Milk Foam}};
       \path[use as bounding box]
       (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
@@ -610,9 +616,8 @@
   \end{center}
   \caption{Macciatto}
 \end{figure}
-
+} % end font region
 \newpage
-
 \begin{sidewaystable}
 \begin{tabular}{r|l|l|l|l|l|l|l|l|}
   \diagbox[height=6em,width=5em]{\emph{Drink}}{\emph{Ingreds.}}   & Espresso & Steamed Milk & Milk Foam & Brewed Coffee & Water & Cream & Steamed Half-and-half & Choc. Syrup \\ \hline
