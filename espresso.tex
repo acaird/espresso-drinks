@@ -30,6 +30,7 @@
 \def\espresso{.4}    % how full is the cup?
 \def\cupwall{5}  % how thick is the cup wall?
 \def\cuptype{6}  % how flat it the cup's bottom?
+\def\cupsize{1.1}% size of the cup
 \def\bboxx{4}
 \def\bboxydelta{.1}
 % From http://web.njit.edu/~kevin/rgb.txt.html
@@ -52,24 +53,24 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale, color=espressoColor, fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -89,38 +90,38 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node[anchor=east] at (\leftTextXpos, {1 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {1 * (\espresso+\milk+\foam) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put foam in the cup
       \draw[scale=\scale, color=foamColor, fill=foamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk+\foam) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk+\foam) * pow(\cupsize,\cuptype)});
 
       % put milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale, color=espressoColor, fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -140,38 +141,38 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=east] at (\leftTextXpos, {.9 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.9 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\milk+\foam) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put foam in the cup
       \draw[scale=\scale, color=black, fill=foamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk+\foam) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk+\foam) * pow(\cupsize,\cuptype)});
 
       % put milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale, color=espressoColor, fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -190,31 +191,31 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\water) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\water) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Hot Water}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put water in the cup
       \draw[scale=\scale, color=waterColor, fill=waterColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\water + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\water + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale, color=espressoColor, fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -233,32 +234,32 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put coffee in the cup
       \draw[scale=\scale, color=coffeeColor, fill=coffeeColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\coffee + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\coffee + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -278,32 +279,32 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(1.1,\cuptype)})
+      \node[anchor=east] at (\leftTextXpos, {.8 * (\espresso+\coffee) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Coffee}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put coffee in the cup
       \draw[scale=\scale, color=coffeeColor, fill=coffeeColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\coffee + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\coffee + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -324,39 +325,39 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Cream}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put cream in the cup
       \draw[scale=\scale, color=creamColor, fill=creamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\cream + \milk + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\cream + \milk + \espresso) * pow(\cupsize,\cuptype)});
 
       % put steamed milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\milk + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\milk + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -378,46 +379,46 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.7 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.7 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Chocolate Syrup}};
-      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\choc+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\choc+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc+\milk+\cream) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.9 * (\espresso+\choc+\milk+\cream) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Cream}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put cream in the cup
       \draw[scale=\scale, color=creamColor, fill=creamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\cream + \milk + \choc + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\cream + \milk + \choc + \espresso) * pow(\cupsize,\cuptype)});
 
       % put steamed milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\milk + \choc + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\milk + \choc + \espresso) * pow(\cupsize,\cuptype)});
 
       % put chocolate syrup in the cup
       \draw[scale=\scale, color=chocColor, fill=chocColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\choc + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\choc + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -436,32 +437,32 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\cream) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Cream}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put cream in the cup
       \draw[scale=\scale, color=creamColor, fill=creamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\cream + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\cream + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -480,32 +481,32 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put steamed milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\milk + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\milk + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -525,38 +526,38 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\milk) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Steamed Milk}};
-      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {1 * (\espresso+\milk+\halfandhalf) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Half-and-half}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put halfandhalf in the cup
       \draw[scale=\scale, color=halfandhalfColor, fill=halfandhalfColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk+\halfandhalf) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk+\halfandhalf) * pow(\cupsize,\cuptype)});
 
       % put milk in the cup
       \draw[scale=\scale, color=milkColor, fill=milkColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\espresso+\milk) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale, color=espressoColor, fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
@@ -575,32 +576,32 @@
   \begin{center}
     \begin{tikzpicture}
 
-      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * \espresso * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Espresso}};
-      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\foam) * pow(1.1,\cuptype)})
+      \node[anchor=west] at (\rightTextXpos, {.8 * (\espresso+\foam) * pow(\cupsize,\cuptype)})
             {\small\textcolor{gray}{Milk Foam}};
       \path[use as bounding box]
-      (-\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) --
+      (-\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) --
       (-\bboxx,0) -- (\bboxx,0) --
-      (\bboxx,{pow(1.1,\cuptype)+\bboxydelta}) -- cycle;
+      (\bboxx,{pow(\cupsize,\cuptype)+\bboxydelta}) -- cycle;
 
       % keep the drink in the cup
-      \clip[scale=\scale,domain=-1.1:1.1,smooth,variable=\x]
+      \clip[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x]
       plot ({\x},{pow(\x,\cuptype)});
 
       % put foam in the cup
       \draw[scale=\scale, color=foamColor, fill=foamColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{(\foam + \espresso) * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{(\foam + \espresso) * pow(\cupsize,\cuptype)});
 
       % put espresso in the cup
       \draw[scale=\scale,color=white,
         fill=espressoColor,decorate,
         decoration = {snake,amplitude =.1mm, segment length = 5mm} ]
-      (-2,-2) rectangle (2,{\espresso * pow(1.1,\cuptype)});
+      (-2,-2) rectangle (2,{\espresso * pow(\cupsize,\cuptype)});
 
       % draw the cup around our magically constrained drink
-      \draw[scale=\scale,domain=-1.1:1.1,smooth,variable=\x,
+      \draw[scale=\scale,domain=-\cupsize:\cupsize,smooth,variable=\x,
         name path=cup,black,line width=\cupwall]
       plot ({\x},{pow(\x,\cuptype)});
 
